@@ -1,0 +1,40 @@
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+
+# Git
+.git/
+.gitignore
+
+# Docker ignore itself
+.dockerignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.swp
+*.bak
+*.tmp
+
+# IDE configs
+.vscode/
+.idea/
+
+# Output and cache folders
+output/
+whisper.cpp/build/
+whisper.cpp/models/
+
+# Logs
+*.log
+
+# Video samples (optional: only if not used inside container)
+samples/

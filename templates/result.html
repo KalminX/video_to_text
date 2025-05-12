@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcription Result</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 50;
+        }
+
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl">
+        <h1 class="text-2xl font-bold text-center mb-6">Transcript</h1>
+        <div class="relative">
+            <pre id="transcript"
+                class="bg-gray-50 p-4 rounded border border-gray-200 max-h-96 overflow-auto text-sm">{{ transcript }}</pre>
+            <button id="copyButton"
+                class="absolute top-2 right-2 bg-blue-600 text-white py-1 px-3 rounded hover:bg-blue-700 transition text-sm">Copy
+                to Clipboard</button>
+        </div>
+        <a href="{{ url_for('index') }}"
+            class="block mt-6 text-center bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">Upload
+            Another</a>
+    </div>
+
+    <div id="loaderOverlay" class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <script>
+        document.getElementById('copyButton').addEventListener('click', () => {
+            const transcript = document.getElementById('transcript').textContent;
+            navigator.clipboard.writeText(transcript).then(() => {
+                const button = document.getElementById('copyButton');
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy to Clipboard';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    </script>
+</body>
+
+</html>

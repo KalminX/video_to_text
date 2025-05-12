@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+.Python
+env/
+venv/
+.venv/
+
+# Flask uploads & outputs
+uploads/
+output/
+
+# Whisper.cpp build artifacts
+whisper.cpp/build/
+whisper.cpp/models/
+whisper.cpp/*.bin
+
+# VSCode / Editor junk
+.vscode/
+.idea/
+*.code-workspace
+
+# OS generated files
+.DS_Store_
