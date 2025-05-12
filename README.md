@@ -4,6 +4,10 @@ A simple and efficient **Flask web application** that accepts video uploads from
 
 Powered by **FFmpeg**, **Whisper.cpp**, **Flask**, and **Gunicorn** — containerized with **Docker**.
 
+## 🚀 Live Demo
+
+👉 [Try the Video to Text App](https://videototext-production.up.railway.app/)
+
 ---
 
 ## 🚀 Features
@@ -37,8 +41,8 @@ _(Add a gif showing video upload -> transcript result)_
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/kalminx/video-transcription-app.git
-cd video-transcription-app
+git clone https://github.com/kalminx/video_to_text.git
+cd video_to_text
 ````
 
 ### 2️⃣ Build & Run with Docker
